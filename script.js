@@ -68,8 +68,15 @@ function getCountryCode(countryName) {
 
 function submitForm(event) {
     event.preventDefault(); // dont refresh website
+    const form = document.getElementById("form")
     
-    let formData = new FormData(document.getElementById("form"));
+    if (form.checkValidity() === false) {
+        event.stopPropagation();
+        form.classList.add('was-validated'); // for bootstrap validation styling
+        return;
+    }
+    
+    let formData = new FormData(form);
     let jsonData = {};
     
     formData.forEach((value, key) => {
