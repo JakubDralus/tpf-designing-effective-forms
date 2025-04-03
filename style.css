@@ -1,3 +1,14 @@
 .modal {
     background: #c6d0ff7a;
 }
+
+body {
+    max-width: 800px;
+    margin: auto;
+    padding-bottom: 30px;
+    border: 2px solid #eee;
+}
+
+.container {
+    padding: 0 40px;
+}
