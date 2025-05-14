@@ -59,7 +59,7 @@ function getCountryCode(countryName) {
         if (option) {
             option.selected = true;
         }
-        console.log(countryCode);
+        // console.log(countryCode);
     })
     .catch(error => {
         console.error('Wystąpił błąd:', error);
@@ -71,14 +71,11 @@ function submitForm(event) {
     const form = document.getElementById("form")
     
     if (form.checkValidity() === false) {
-        event.stopPropagation();
-        form.classList.add('was-validated'); // for bootstrap validation styling
-        return;
+        // return;
     }
     
     let formData = new FormData(form);
     let jsonData = {};
-    
     formData.forEach((value, key) => {
         jsonData[key] = value;
     });
@@ -93,11 +90,5 @@ function handleClick() {
 (() => {
     fetchAndFillCountries();
     document.addEventListener('click', handleClick);
-    
-    document.getElementById("form").addEventListener("submit", (event) => submitForm(event));
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            submitForm(event);
-        }
-    });
+    document.getElementById("form").addEventListener("submit", submitForm);
 })()

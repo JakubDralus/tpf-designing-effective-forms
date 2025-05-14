@@ -16,7 +16,7 @@
 <div class="container">
   <h1>Uzupełnij formularz</h1>
   
-  <form id="form" novalidate>
+  <form id="form" class="needs-validation" novalidate>
     <div class="mb-3">
       <label for="firstName" class="form-label">Imię</label>
       <input
@@ -99,11 +99,13 @@
             id="countryCode"
             name="countryCode"
             aria-label="Wybierz numer kierunkowy"
+            required
           >
+            <option value="" selected>Wybierz</option>
             <option value="+69">+69 (test)</option>
+            <option value="+29">+29 (test)</option>
             <option value="+48">+48 (Polska)</option>
             <option value="+1">+1 (Stany Zjednoczone)</option>
-            <!-- Dodaj więcej opcji, jeśli jest to potrzebne -->
           </select>
           <input
             type="tel"
@@ -111,13 +113,10 @@
             id="phoneNumber"
             name="phoneNumber"
             required
-            placeholder="Wpisz numer telefonu"
-            pattern="^\+?[0-9]{1,4}?[-.\s]?[0-9]+[-.\s]?[0-9]+$"
             aria-describedby="phoneHelp"
+            pattern="^\d{3}\s?\d{3}\s?\d{3}$"
           />
-          <div id="phoneHelp" class="form-text">
-            Numer telefonu powinien zawierać tylko cyfry Przykład: 123 456 789.
-          </div>
+          <div class="invalid-feedback">Wprowadź poprawny numer telefonu (123 456 789).</div>
         </div>
       </div>
     </div>
@@ -184,13 +183,12 @@
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
       <input
-        type="email"
-        class="form-control"
         id="email"
+        class="form-control"
+        type="email"
         name="email"
         placeholder="Wpisz adres e-mail"
         aria-describedby="emailHelp"
-        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         required
       />
       <div id="emailHelp" class="form-text">
@@ -239,12 +237,12 @@
     </div>
     
     <button
+      id="submitButton"
       type="submit"
       class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#form-feedback-modal"
-      onclick="submitForm()"
     >
+<!--      data-bs-toggle="modal"-->
+<!--      data-bs-target="#form-feedback-modal"-->
       submit
     </button>
     <button type="submit" class="btn btn-secondary">test</button>
@@ -253,8 +251,7 @@
 </div>
 
 <!-- Raport kliknięć -->
-<div class="modal fade" id="form-feedback-modal" tabindex="-1" aria-labelledby="raportModalLabel"
-     aria-hidden="true">
+<div class="modal fade" id="form-feedback-modal" tabindex="-1" aria-labelledby="raportModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
