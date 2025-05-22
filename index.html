@@ -53,6 +53,22 @@
       />
     </div>
     <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        id="email"
+        class="form-control"
+        type="email"
+        name="email"
+        placeholder="Wpisz adres e-mail"
+        aria-describedby="emailHelp"
+        required
+      />
+      <div id="emailHelp" class="form-text">
+        Wprowadź poprawny adres e-mail (np. example@mail.com)
+      </div>
+    </div>
+    
+    <div class="mb-3">
       <label for="street" class="form-label">Ulica</label>
       <input
         type="text"
@@ -78,7 +94,7 @@
           pattern="^[0-9]{2}-[0-9]{3}$"
         />
         <div id="zipCodeHelp" class="form-text">
-          Wpisz kod pocztowy w formacie XX-XXX (np. 12-345).
+          Format XX-XXX (np. 12-345).
         </div>
       </div>
       <div class="col-8">
@@ -191,32 +207,6 @@
         />
         <label class="form-check-label" for="posrednik">Pośrednik płatności</label>
       </div>
-    </div>
-    
-    <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input
-        id="email"
-        class="form-control"
-        type="email"
-        name="email"
-        placeholder="Wpisz adres e-mail"
-        aria-describedby="emailHelp"
-        required
-      />
-      <div id="emailHelp" class="form-text">
-        Wprowadź poprawny adres e-mail (np. example@mail.com)
-      </div>
-    </div>
-    
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password"
-             class="form-control"
-             id="password"
-             name="password"
-             pattern=".{5,}"
-             required/>
     </div>
     
     <div class="mb-3 form-check">
